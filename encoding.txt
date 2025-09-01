@@ -1,0 +1,46 @@
+Encoding Notes (Short)
+1. Label Encoding:
+Definition: Har category ko integer assign.
+
+Use case:
+✅ Target variable (Yes/No, Spam/Ham).
+✅ Features sirf tab jab model = Tree-based (RF, XGB, DT).
+
+Cons: Artificial order aa jata hai (0 < 1 < 2).
+
+Example: Cat=0, Dog=1, Mouse=2.
+
+
+2. Ordinal Encoding:
+Definition: Categories ko defined order ke hisaab se numbers.
+
+Use case:
+✅ Jab natural order ho (Size: XS < S < M < L < XL, Education Level, Ratings).
+
+Cons: Agar galat order diya to model confuse hoga.
+
+Example: S=1, M=2, L=3, XL=4.
+
+
+3. One-Hot Encoding (OHE):
+Definition: Har category ka alag column (0/1).
+
+Use case:
+✅ Jab no order / nominal feature ho (City, Color, Brand).
+✅ Suitable for Linear, Logistic, SVM, kNN, NN.
+
+Cons: High-dimensional ho jata hai (bahut categories hone pe).
+
+Example: City: Delhi/Mumbai → [1,0], [0,1].
+
+Quick Rule to Remember
+
+🎯 Target (y) → Label Encode.
+
+🎯 Feature with Order → Ordinal Encode.
+
+🎯 Feature without Order → One-Hot Encode.
+
+🎯 Tree models (RF, DT, XGB) → Label/Ordinal chalega bhi.
+
+🎯 Linear/NN/SVM → Prefer One-Hot (Nominal).
